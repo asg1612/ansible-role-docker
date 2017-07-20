@@ -1,0 +1,35 @@
+- name: recogemos la clave docker
+  get_url:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    dest: /tmp/gpg
+  become: true
+
+- name: insertamos la clave
+  apt_key:
+    file: /tmp/gpg
+    state: present
+  become: true
+
+- name: Agregamos el repositorio Docker
+  template: src=docker.list.j2 dest=/etc/apt/sources.list.d/docker.list
+  become: true
+
+- name: update apt packages
+  apt: update_cache=yes
+       cache_valid_time=3600
+  become: true
+
+- name: Eliminamos lxc-docker
+  apt: name=lxc-docker state=absent purge=yes
+  become: true
+
+- name: Instalamos Docker
+  apt: name=docker-engine state=present
+  become: true
+
+- name: Subimos la configuración del demonio docker
+  copy:
+    src: daemon.json
+    dest: /etc/docker/daemon.json
+  become: true
+  notify: restart docker
