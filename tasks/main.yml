@@ -23,7 +23,7 @@
   become: true
 
 - name: Instalamos Docker
-  apt: name=docker-engine state=present
+  apt: name=docker-ce state=present
   become: true
 
 - name: Subimos la configuración del demonio docker
