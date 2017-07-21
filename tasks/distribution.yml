@@ -1,4 +1,0 @@
-# Es el antiguo registry
-- name: desplegamos el registry.
-  docker_image:
-    name: registry:2
