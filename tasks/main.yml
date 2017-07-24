@@ -32,6 +32,7 @@
   with_items:
     - docker
     - docker-compose
+    - boto
 
 - name: Subimos la configuración del demonio docker
   copy:
