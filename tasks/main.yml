@@ -18,8 +18,20 @@
   apt: name=lxc-docker state=absent purge=yes
 
 - name: Instalamos Docker
-  apt: name=docker-ce state=present
+  apt:
+    name: {{ item }}
+    state: present
+  with_items:
+    - docker-ce
+    - python-pip
 
+- name: Instalamos los paquetes necesarios para docker-compose (para ejecutar docker_service de ansible)
+  pip:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - docker
+    - docker-compose
 
 - name: Subimos la configuración del demonio docker
   copy:
