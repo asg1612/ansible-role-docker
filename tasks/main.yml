@@ -24,6 +24,7 @@
   with_items:
     - docker-ce
     - python-pip
+    - dnspython
 
 - name: Instalamos los paquetes necesarios para docker-compose (para ejecutar docker_service de ansible)
   pip:
@@ -32,7 +33,6 @@
   with_items:
     - docker
     - docker-compose
-    - boto==2.38.0
 
 - name: Subimos la configuración del demonio docker
   copy:
