@@ -1,12 +1,12 @@
-- name: recogemos la clave docker
-  get_url:
-    url: https://download.docker.com/linux/ubuntu/gpg
-    dest: /tmp/gpg
-
-- name: insertamos la clave
-  apt_key:
-    file: /tmp/gpg
-    state: present
+# - name: recogemos la clave docker
+#   get_url:
+#     url: https://download.docker.com/linux/ubuntu/gpg
+#     dest: /tmp/gpg
+#
+# - name: insertamos la clave
+#   apt_key:
+#     file: /tmp/gpg
+#     state: present
 
 - name: Agregamos el repositorio Docker
   template: src=docker.list.j2 dest=/etc/apt/sources.list.d/docker.list
