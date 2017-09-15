@@ -9,7 +9,10 @@
     state: present
 
 - name: Agregamos el repositorio Docker
-  template: src=templates/docker.list.j2 dest=/etc/apt/sources.list.d/docker.list
+  template:
+    src: docker.list.j2
+    dest: /etc/apt/sources.list.d/docker.list
+    mode: 644
 
 - name: update apt packages
   apt: update_cache=yes
