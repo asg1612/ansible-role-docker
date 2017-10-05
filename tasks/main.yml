@@ -38,12 +38,12 @@
     - dnspython
 
 - name: Desinstalamos los paquetes no necesarios o problematicos
-     pip:
-       name: "{{ item }}"
-       state: absent
-     with_items:
-       - docker-py
-       
+  pip:
+    name: "{{ item }}"
+    state: absent
+  with_items:
+    - docker-py
+
 - name: Subimos la configuración del demonio docker
   copy:
     src: daemon.json
