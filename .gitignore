@@ -1,1 +1,3 @@
-.idea/
+*.log
+*.retry
+tests/test.sh
