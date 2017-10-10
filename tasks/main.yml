@@ -1,3 +1,9 @@
+- name: Install apt-transport-https
+  apt:
+    name: apt-transport-https
+    state: present
+    update_cache: yes
+
 - name: recogemos la clave docker
   get_url:
     url: https://download.docker.com/linux/ubuntu/gpg
@@ -14,9 +20,6 @@
     dest: /etc/apt/sources.list.d/docker.list
     mode: 644
 
-- name: update apt packages
-  apt: update_cache=yes
-
 - name: Eliminamos lxc-docker
   apt: name=lxc-docker state=absent purge=yes
 
@@ -24,6 +27,7 @@
   apt:
     name: "{{ item }}"
     state: present
+    update_cache: yes
   with_items:
     - docker-ce
     - python-pip
@@ -43,6 +47,11 @@
 #     state: absent
 #   with_items:
 #     - docker-py
+
+- name: Create directory /etc/docker
+  file:
+    path: /etc/docker
+    state: directory
 
 - name: Subimos la configuración del demonio docker
   copy:
