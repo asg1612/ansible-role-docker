@@ -1,0 +1,13 @@
+{
+  {%if registry_mirrors %}
+  "registry-mirrors": [{% for mirror in registry_mirrors %}"{{ mirror }}"{% if not loop.last %},{% endif %}{% endfor %}]{% if insecure_registries %},{% endif %}
+  {% endif %}
+  
+  {%if insecure_registries %}
+  "insecure-registries":[{% for insecure in insecure_registries %}"{{ insecure }}"{% if not loop.last %},{% endif %}{% endfor %}]{% if dns %},{% endif %}
+  {% endif %}
+
+  {% if dns %}
+  "dns": [{% for d in dns %}"{{ d }}"{% if not loop.last %},{% endif %}{% endfor %}]
+  {% endif %}
+}

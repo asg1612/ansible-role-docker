@@ -1,5 +1,0 @@
-{
-  "registry-mirrors": ["http://registry-mirror.hsap.sacyl.es:5001"],
-  "insecure-registries":["registry.hsap.sacyl.es:5000"],
-  "dns": ["10.36.11.238","10.36.11.116"]
-}

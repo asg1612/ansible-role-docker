@@ -41,12 +41,12 @@
     - docker-compose
     - dnspython
 
-# - name: Desinstalamos los paquetes no necesarios o problematicos
-#   pip:
-#     name: "{{ item }}"
-#     state: absent
-#   with_items:
-#     - docker-py
+- name: Desinstalamos los paquetes no necesarios o problematicos
+  pip:
+    name: "{{ item }}"
+    state: absent
+  with_items:
+    - docker-py
 
 - name: Create directory /etc/docker
   file:
@@ -54,9 +54,10 @@
     state: directory
 
 - name: Subimos la configuración del demonio docker
-  copy:
-    src: daemon.json
+  template:
+    src: daemon.json.j2
     dest: /etc/docker/daemon.json
+  # when: registry-mirrors == false
   notify: restart docker
 
 - meta: flush_handlers
