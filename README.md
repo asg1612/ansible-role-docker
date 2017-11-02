@@ -8,21 +8,23 @@ This role is for install Docker system. Testing with molecule
 Requirements
 ------------
 
+None
 
 Role Variables
 --------------
-*registry_mirrors* registry mirror for docker system
-*insecure_registries* insecure registries for docker system
-*dns* dns servers for docker system
+**registry_mirrors**: registry mirror for docker system
+
+**insecure_registries**: insecure registries for docker system
+
+**dns**: dns servers for docker system
 
 Dependencies
 ------------
 
+None
 
 Example Playbook
 ----------------
-
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
     - hosts: servers
       vars:
