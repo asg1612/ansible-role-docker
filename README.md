@@ -49,6 +49,9 @@ Author Information
 ------------------
 
 Andrés Sánchez García
+
 twitter: @asg1612
+
 e-mail: asg1612@gmail.com
+
 linkedin: https://www.linkedin.com/in/asg1612/
