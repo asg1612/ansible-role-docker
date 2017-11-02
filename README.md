@@ -3,7 +3,7 @@
 Role Docker
 =========
 
-This role is for Docker system. Testing based on geerlingguy (https://github.com/geerlingguy)
+This role is for install Docker system. Testing with molecule
 
 Requirements
 ------------
@@ -36,7 +36,7 @@ Including an example of how to use your role (for instance, with variables passe
          - 8.8.8.8
          - 9.9.9.9
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: asg1612.ansible-role-docker }
 
 
 License

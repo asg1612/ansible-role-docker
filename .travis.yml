@@ -1,16 +1,25 @@
 ---
+
+language: python
+python: "2.7"
+
+# Use the new container infrastructure
+sudo: required
+
 services: docker
 
-env:
-  - distro: ubuntu1604
+# Ensure docker is updated
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -o Dpkg::Options::="--force-confold" --force-yes -y docker-ce
+
+# Install molecule
+install:
+  - pip install -r test-requirements.txt
 
 script:
-  # Download test shim.
-  - wget -O ${PWD}/tests/test.sh https://gist.githubusercontent.com/geerlingguy/73ef1e5ee45d8694570f334be385e181/raw/
-  - chmod +x ${PWD}/tests/test.sh
+  - molecule test --driver-name docker
 
-  # Run tests.
-  - distro=ubuntu1604 ${PWD}/tests/test.sh
 
 notifications:
-webhooks: https://galaxy.ansible.com/api/v1/notifications/
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/

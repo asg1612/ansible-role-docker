@@ -1,2 +1,5 @@
+---
 - name: restart docker
-  command: systemctl restart docker
+  systemd:
+    name: docker
+    state: restarted
