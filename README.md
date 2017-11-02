@@ -1,4 +1,4 @@
-![Status](https://travis-ci.org/asg1612/ansible-docker.svg?branch=master)
+![Status](https://travis-ci.org/asg1612/ansible-role-docker.svg?branch=master)
 
 Role Docker
 =========
