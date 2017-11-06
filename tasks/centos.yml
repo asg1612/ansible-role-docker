@@ -1,13 +1,4 @@
 ---
-# - name: Centos -- Uninstall old version
-#   yum:
-#     name: "{{ item }}"
-#     state: absent
-#   with_items:
-#     - docker-common
-#     - docker-selinux
-#     - docker-engine
-
 - name: Add Docker GPG key.
   rpm_key:
     key: https://download.docker.com/linux/centos/gpg
@@ -20,18 +11,11 @@
 
 - name: Add Docker repository.
   get_url:
-    url:  https://download.docker.com/linux/centos/docker-ce.repo
+    url: https://download.docker.com/linux/centos/docker-ce.repo
     dest: '/etc/yum.repos.d/docker-ce.repo'
     owner: root
     group: root
     mode: 0644
-
-# - name: Centos -- Add Docker repository
-#   yum_repository:
-#     name: docker-ce
-#     description: Docker-ce repository
-#     baseurl: https://download.docker.com/linux/centos/
-#     state: present
 
 - name: Centos -- Install docker-ce
   yum:
