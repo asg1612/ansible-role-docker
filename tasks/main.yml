@@ -1,39 +1,13 @@
 ---
-- name: Install apt-transport-https
-  apt:
-    name: apt-transport-https
-    state: present
-    update_cache: yes
+- name: Install docker on ubuntu
+  import_tasks: ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
 
-- name: recogemos la clave docker
-  get_url:
-    url: https://download.docker.com/linux/ubuntu/gpg
-    dest: /tmp/gpg
+- name: Install docker on Centos
+  import_tasks: centos.yml
+  when: ansible_distribution == "CentOS"
 
-- name: insertamos la clave
-  apt_key:
-    file: /tmp/gpg
-    state: present
-
-- name: Agregamos el repositorio Docker
-  template:
-    src: docker.list.j2
-    dest: /etc/apt/sources.list.d/docker.list
-    mode: 0644
-
-- name: Eliminamos lxc-docker
-  apt: name=lxc-docker state=absent purge=yes
-
-- name: Instalamos Docker
-  apt:
-    name: "{{ item }}"
-    state: present
-    update_cache: yes
-  with_items:
-    - docker-ce
-    - python-pip
-
-- name: Instalamos los paquetes necesarios para docker-compose (para ejecutar docker_service de ansible)
+- name: Install python packages
   pip:
     name: "{{ item }}"
     state: present
@@ -42,7 +16,7 @@
     - docker-compose
     - dnspython
 
-- name: Desinstalamos los paquetes no necesarios o problematicos
+- name: Remove docker-py
   pip:
     name: "{{ item }}"
     state: absent
@@ -54,11 +28,10 @@
     path: /etc/docker
     state: directory
 
-- name: Subimos la configuración del demonio docker
+- name: Upload docker configuration
   template:
     src: daemon.json.j2
     dest: /etc/docker/daemon.json
   # when: registry-mirrors == false
-  notify: restart docker
-
-- meta: flush_handlers
+  notify:
+    - restart docker
