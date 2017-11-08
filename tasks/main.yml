@@ -35,3 +35,5 @@
   # when: registry-mirrors == false
   notify:
     - restart docker
+
+- meta: flush_handlers
