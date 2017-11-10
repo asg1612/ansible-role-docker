@@ -12,7 +12,7 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - xenial
-    - name: Centos
+    - name: EL
       versions:
         - 7
 

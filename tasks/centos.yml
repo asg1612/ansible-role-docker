@@ -19,5 +19,8 @@
 
 - name: Centos -- Install docker-ce
   yum:
-    name: docker-ce
+    name: "{{ item }}"
     state: present
+  with_items:
+    - docker-ce
+    - net-tools
