@@ -44,4 +44,9 @@
   notify:
     - restart docker
 
+- name: Ensure Docker is running
+  systemd:
+    name: docker
+    state: started
+
 - meta: flush_handlers
