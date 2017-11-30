@@ -1,13 +1,11 @@
 {
-  {%if registry_mirrors %}
-  "registry-mirrors": [{% for mirror in registry_mirrors %}"{{ mirror }}"{% if not loop.last %},{% endif %}{% endfor %}]{% if insecure_registries %},{% endif %}
-  {% endif %}
-  
-  {%if insecure_registries %}
-  "insecure-registries":[{% for insecure in insecure_registries %}"{{ insecure }}"{% if not loop.last %},{% endif %}{% endfor %}]{% if dns %},{% endif %}
-  {% endif %}
+{% for item in daemon_json %}
+{% if daemon_json[item] is string %}
+  "{{item}}": "{{daemon_json[item]}}"{% if not loop.last %},{% endif %}
 
-  {% if dns %}
-  "dns": [{% for d in dns %}"{{ d }}"{% if not loop.last %},{% endif %}{% endfor %}]
-  {% endif %}
+{% else %}
+  "{{ item }}": ["{{ daemon_json[item] | list | join ("\",\"") }}"]{% if not loop.last %},{% endif %}
+
+{% endif %}
+{% endfor %}
 }

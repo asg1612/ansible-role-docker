@@ -2,14 +2,14 @@
 - name: Converge
   hosts: all
   vars:
-    registry_mirrors:
-      - http://example.com:5001
-      - http://example2.com:5000
-    insecure_registries:
-      - example.com:5000
-      - example2.com:5001
-    dns:
-      - 8.8.8.8
-      - 9.9.9.9
+    daemon_json:
+      registry-mirrors:
+        - http://example.com:5001
+      insecure-registries:
+        - example.com:5000
+      dns:
+        - 8.8.8.8
+        - 9.9.9.9
+        - 10.10.10.10
   roles:
     - role: ansible-role-docker

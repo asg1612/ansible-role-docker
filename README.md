@@ -12,31 +12,26 @@ None
 
 Role Variables
 --------------
-**registry_mirrors**: registry mirror for docker system
-
-**insecure_registries**: insecure registries for docker system
-
-**dns**: dns servers for docker system
+**daemon_json**: Dictionary with daemon.json options
 
 Dependencies
 ------------
 
 None
 
+
 Example Playbook
 ----------------
 
     - hosts: servers
       vars:
-        registry_mirrors:
-          - http://example.com:5001
-          - http://example2.com:5000
-        insecure_registries:
-          - example.com:5000
-          - example2.com:5001
-        dns:
-         - 8.8.8.8
-         - 9.9.9.9
+        daemon_json:
+          registry-mirrors:
+            - http://example.com:5001
+          insecure-registries:
+            - example.com:5000
+          dns:
+            - 8.8.8.8
       roles:
          - { role: asg1612.ansible-role-docker }
 

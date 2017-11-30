@@ -32,7 +32,15 @@
   template:
     src: daemon.json.j2
     dest: /etc/docker/daemon.json
-  # when: registry-mirrors == false
+  when: daemon_json is defined
+  notify:
+    - restart docker
+
+- name: When daemon.json is undefined. Delete daemon.json
+  file:
+    path: /etc/docker/daemon.json
+    state: absent
+  when: daemon_json is undefined
   notify:
     - restart docker
 
