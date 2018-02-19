@@ -1,10 +1,8 @@
 ---
-- name: Install docker on ubuntu
-  import_tasks: ubuntu.yml
+- import_tasks: ubuntu.yml
   when: ansible_distribution == "Ubuntu"
 
-- name: Install docker on Centos
-  import_tasks: centos.yml
+- import_tasks: centos.yml
   when: ansible_distribution == "CentOS"
 
 - name: Install python packages
