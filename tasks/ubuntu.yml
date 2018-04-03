@@ -31,6 +31,6 @@
     update_cache: yes
     allow_unauthenticated: yes
   with_items:
-    - docker-ce=17.09.0
+    - docker-ce=17.09.0*
     - python-pip
     - net-tools
