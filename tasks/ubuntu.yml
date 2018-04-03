@@ -7,7 +7,7 @@
 
 - name: UBUNTU -- Get key docker
   get_url:
-    url: https://download.docker.com/linux/ubuntu/gpg
+    url: http://download.docker.com/linux/ubuntu/gpg
     dest: /tmp/gpg
 
 - name: UBUNTU -- Install apt key
