@@ -11,5 +11,9 @@
         - 8.8.8.8
         - 9.9.9.9
         - 10.10.10.10
+      log-driver:
+        - gelf
+      log-opts:
+        - "{'gelf-address': 'udp://log.hsap.sacyl.es:12201'}"
   roles:
     - role: ansible-role-docker
