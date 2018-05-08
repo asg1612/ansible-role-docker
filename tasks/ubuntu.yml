@@ -28,6 +28,7 @@
   apt:
     name: "{{ item }}"
     state: present
+    force: yes
     update_cache: yes
     allow_unauthenticated: yes
   with_items:
