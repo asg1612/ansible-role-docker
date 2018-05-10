@@ -19,7 +19,3 @@ def test_docker_service(host):
 
     assert s.is_enabled
     assert s.is_running
-
-
-def test_docker_socket(host):
-    assert host.socket("unix:///var/run/docker.sock").is_listening
