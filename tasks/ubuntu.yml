@@ -35,4 +35,3 @@
     - docker-ce=17.03.0*
     - python-pip
     - net-tools
-    - iproute # I need for get ansible_default_ipv4 in other roles like dockerswarm
