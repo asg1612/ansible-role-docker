@@ -13,6 +13,7 @@ None
 Role Variables
 --------------
 **daemon_json**: Dictionary with daemon.json options
+**docker_version**: Docker version ej: docker_version: 18.03.*
 
 Dependencies
 ------------

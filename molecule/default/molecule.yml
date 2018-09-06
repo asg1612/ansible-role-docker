@@ -7,7 +7,7 @@ lint:
   name: yamllint
 platforms:
   - name: ubuntu-1
-    image: geerlingguy/docker-ubuntu1604-ansible
+    image: asg1612/docker-systemd
     privileged: True
     required: True
     volumes:
