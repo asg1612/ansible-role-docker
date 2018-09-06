@@ -35,3 +35,4 @@
     - docker-ce={{docker_version}}
     - python-pip
     - net-tools
+    - iproute2
