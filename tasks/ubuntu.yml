@@ -3,7 +3,7 @@
   apt:
     name: apt-transport-https
     state: present
-    update_cache: yes
+    update_cache: true
 
 - name: UBUNTU -- Get key docker
   get_url:
@@ -24,15 +24,30 @@
 - name: UBUNTU -- Remove lxc-docker
   apt: name=lxc-docker state=absent purge=yes
 
-- name: UBUNTU -- Install Docker service and pip
+- name: UBUNTU [18.04] -- Install Docker service and pip
   apt:
     name: "{{ item }}"
     state: present
-    force: yes
-    update_cache: yes
-    allow_unauthenticated: yes
+    force: true
+    update_cache: true
+    allow_unauthenticated: true
   with_items:
     - docker-ce={{docker_version}}
     - python-pip
     - net-tools
     - iproute2
+  when: ansible_distribution_version == '18.04'
+
+- name: UBUNTU -- Install Docker service and pip
+  apt:
+    name: "{{ item }}"
+    state: present
+    force: true
+    update_cache: true
+    allow_unauthenticated: true
+  with_items:
+    - docker-ce={{docker_version}}
+    - python-pip
+    - net-tools
+    - iproute2
+  when: ansible_distribution_version == '16.04'
