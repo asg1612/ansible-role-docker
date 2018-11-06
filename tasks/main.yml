@@ -4,19 +4,13 @@
 
 - name: Install python packages
   pip:
-    name: "{{ item }}"
+    name: ["docker", "docker-compose", "dnspython"]
     state: present
-  with_items:
-    - docker
-    - docker-compose
-    - dnspython
 
 - name: Remove docker-py
   pip:
-    name: "{{ item }}"
+    name: ["docker-py"]
     state: absent
-  with_items:
-    - docker-py
 
 - name: Create directory /etc/docker
   file:
