@@ -11,6 +11,6 @@
         - 8.8.8.8
         - 9.9.9.9
         - 10.10.10.10
-    docker_version: 18.03.*
+    docker_version: 5:18.09.*
   roles:
     - role: ansible-role-docker
