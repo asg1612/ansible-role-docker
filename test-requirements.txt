@@ -1,4 +1,4 @@
-ansible==2.7.1
+ansible==2.8
 molecule
 docker
 PyYAML

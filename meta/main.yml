@@ -3,20 +3,12 @@ galaxy_info:
   author: Andres Sanchez Garcia
   description: Install Docker service
   company: HSAP
-
-  license: license (GPLv2, CC-BY, etc)
-
-  min_ansible_version: 2.4
-
+  license: GPLv2
+  min_ansible_version: 2.8
   platforms:
     - name: Ubuntu
       versions:
-        - xenial
-    - name: EL
-      versions:
-        - 7
-
+        - bionic
   galaxy_tags:
     - docker
-
 dependencies: []
