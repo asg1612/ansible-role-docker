@@ -24,15 +24,6 @@
 - name: UBUNTU -- Remove lxc-docker
   apt: name=lxc-docker state=absent purge=yes
 
-- name: UBUNTU [18.04] -- Install Docker service and pip
-  apt:
-    name: ["docker-ce={{ docker_version }}", "python-pip", "net-tools", "iproute2"]
-    state: present
-    force: true
-    update_cache: true
-    allow_unauthenticated: true
-  when: ansible_distribution_version == '18.04'
-
 - name: UBUNTU -- Install Docker service and pip
   apt:
     name: ["docker-ce={{ docker_version }}", "python-pip", "net-tools", "iproute2"]
@@ -40,4 +31,3 @@
     force: true
     update_cache: true
     allow_unauthenticated: true
-  when: ansible_distribution_version == '16.04'
