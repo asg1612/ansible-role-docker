@@ -26,7 +26,7 @@
 
 - name: UBUNTU -- Install Docker service and pip
   apt:
-    name: ["docker-ce={{ docker_version }}", "python-pip", "net-tools", "iproute2", "python-docker", "docker-compose", "pyton-requests"]
+    name: ["docker-ce={{ docker_version }}", "python-pip", "net-tools", "iproute2", "python-docker", "docker-compose", "python-requests"]
     state: present
     force: true
     update_cache: true
