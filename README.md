@@ -1,4 +1,4 @@
-![Status](https://travis-ci.org/asg1612/ansible-role-docker.svg?branch=master)
+![Status](https://travis-ci.org/asg1612/ansible-role-docker.svg?branch=master) [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/1849/badge)](https://bestpractices.coreinfrastructure.org/projects/1849)
 
 Role Docker
 =========
@@ -40,7 +40,7 @@ Example Playbook
 License
 -------
 
-GNU General Public License v 3.0
+[GNU General Public License v 3.0](https://www.gnu.org/licenses/gpl-3.0)
 
 
 Author Information
