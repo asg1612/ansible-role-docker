@@ -19,7 +19,8 @@ install:
   - pip install -r requirements.txt
 
 script:
-  - molecule test --driver-name docker
+  - molecule test --driver-name docker --scenario-name default
+  -  molecule test --driver-name docker --scenario-name centos
 
 
 notifications:
