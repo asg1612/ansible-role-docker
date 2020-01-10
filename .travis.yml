@@ -20,7 +20,7 @@ install:
 
 script:
   - molecule test --driver-name docker --scenario-name default
-  -  molecule test --driver-name docker --scenario-name centos
+  - molecule test --driver-name docker --scenario-name centos
 
 
 notifications:
