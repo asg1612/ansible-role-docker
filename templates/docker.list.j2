@@ -1,1 +1,5 @@
-deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable
+{% if ansible_distribution_release=="eoan" %}
+    deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} test
+{% else %}
+    deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable
+{% endif %}
