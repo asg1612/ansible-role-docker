@@ -1,0 +1,34 @@
+---
+    # tasks file for centos or EL
+    - name: CentOS -- Eliminamos paquetes antiguos de docker
+      yum:
+        name: ["docker", "docker-client", "docker-client-latest", "docker-common",
+               "docker-latest", "docker-latest-logrotate", "docker-logrotate", "docker-engine"]
+        state: absent
+
+    - name: CentOS -- Add Docker GPG key.
+      rpm_key:
+        key: https://download.docker.com/linux/centos/gpg
+        state: present
+
+    - name: CentOS -- Add Docker repository.
+      get_url:
+        url: "https://download.docker.com/linux/centos/docker-ce.repo"
+        dest: '/etc/yum.repos.d/docker-ce.repo'
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: CentOS -- Instalamos paquete requeridos
+      yum:
+        name: ["yum-utils", "device-mapper-persistent-data", "lvm2"]
+        state: present
+        disable_gpg_check: yes
+        update_cache: yes
+
+    - name: CentOS -- Instalamos Docker
+      yum:
+        name: ["docker-ce", "docker-ce-cli", "containerd.io"]
+        state: present
+        update_cache: yes
+        validate_certs: no
