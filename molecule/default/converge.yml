@@ -11,6 +11,8 @@
         - 8.8.8.8
         - 9.9.9.9
         - 10.10.10.10
-    docker_version: 5:18.09.*
-  roles:
-    - role: ansible-role-docker
+    docker_version: "5:18.09.0~3-0~ubuntu-bionic"
+  tasks:
+    - name: "Include traefik"
+      include_role:
+        name: ansible-role-docker
