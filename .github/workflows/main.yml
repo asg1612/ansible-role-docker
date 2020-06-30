@@ -23,6 +23,6 @@ jobs:
         with:
           path: "${{ github.repository }}"
       - name: Molecule
-        uses: gofrolist/molecule-action@master
+        uses: asg1612/action-molecule@master
         with:
           molecule_command: test
