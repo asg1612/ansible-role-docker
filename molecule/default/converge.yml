@@ -11,7 +11,7 @@
         - 8.8.8.8
         - 9.9.9.9
         - 10.10.10.10
-    docker_version: "5:18.09.0~3-0~ubuntu-bionic"
+    docker_version: "19.03.8-0ubuntu1"
   tasks:
     - name: "Include traefik"
       include_role:
