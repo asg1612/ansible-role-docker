@@ -1,5 +1,0 @@
-ansible
-molecule
-docker
-Jinja2
-PyYAML
