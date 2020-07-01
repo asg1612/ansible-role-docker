@@ -1,5 +1,5 @@
 ![Status](https://travis-ci.org/asg1612/ansible-role-docker.svg?branch=master) [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/1849/badge)](https://bestpractices.coreinfrastructure.org/projects/1849)
-
+![](https://github.com/actions/asg1612/workflows/.github/workflows/main.yml/badge.svg)
 Role Docker
 =========
 
